@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="goog/base.js"></script>
+		<script>
+			goog.require("goog.dom");
+			goog.require("goog.editor.SeamlessField");
+			goog.require('goog.editor.Command');
+			goog.require('goog.editor.plugins.BasicTextFormatter');
+			goog.require('goog.editor.plugins.EnterHandler');
+			goog.require('goog.editor.plugins.HeaderFormatter');
+			goog.require('goog.editor.plugins.ListTabHandler');
+			goog.require('goog.editor.plugins.LoremIpsum');
+			goog.require('goog.editor.plugins.RemoveFormatting');
+			goog.require('goog.editor.plugins.SpacesTabHandler');
+			goog.require('goog.editor.plugins.UndoRedo');
+			goog.require('goog.ui.editor.DefaultToolbar');
+			goog.require('goog.ui.editor.ToolbarController');
+
+		</script>
+
+		<!-- on intégre le script de l'éditeur et de l'enregistreur -->
+		<script src="editorPage.js"></script>
+		<script src="fonctionsAjax.js"></script>
+		<script src="newPage.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../design/page/base.css" media="all">
+		<link rel="stylesheet" type="text/css" href="../design/page/orange/style.css" media="screen">
+		<link rel="stylesheet" href="goog/css/button.css" /> 
+		<link rel="stylesheet" href="goog/css/menus.css" /> 
+		<link rel="stylesheet" href="goog/css/toolbar.css" /> 
+		<link rel="stylesheet" href="goog/css/colormenubutton.css" /> 
+		<link rel="stylesheet" href="goog/css/palette.css" /> 
+		<link rel="stylesheet" href="goog/css/colorpalette.css" /> 
+		<link rel="stylesheet" href="goog/css/editortoolbar.css" /> 
+		<link rel="stylesheet" href="goog/css/common.css" /> 
+
+		<link rel="stylesheet" href="css/editor.css" />
+		
+		<!-- POPUP -->
+		<link type="text/css" media="screen" rel="stylesheet" href="css/colorbox.css" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.colorbox.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$(".modifInfos").colorbox({width:"370px", inline:true, href:"#infos"});
+			
+			});
+		</script>
+		<!-- /POPUP -->
+	</head>
+	<body onload="initFields('');">
+	    <div id="global">
+	    <div id="editorBanner">
+			<table><tr>
+			<td>
+			<a href="newPage.html?site=lol"><img border="none" src="img/addBillet.png" alt="Ajouter une page" onmouseout="this.src='img/addBillet.png';"  onmouseover="this.src='img/addBillet_over.png';" name="addPage" id="addPage" value="Ajouter une page" /></a>
+			</td>
+			<td>
+			    <a href="#"><img border="none" src="img/addCateg.png" alt="Ajouter un lien" onmouseout="this.src='img/addCateg.png';"  onmouseover="this.src='img/addCateg_over.png';" name="addLien" id="addLien" value="Ajouter un lien" /></a>
+			</td>
+			<td>
+			<a class="modifInfos" href="#"><img border="none" src="../editor/img/setting.png" alt="Modifier les informations générales du site" onmouseout="this.src='../editor/img/setting.png';"  onmouseover="this.src='../editor/img/setting_over.png';" name="setInfos" id="setInfos" value="Modifier les informations générales du site" /></a>
+
+			</td>
+			<td>
+			<a href="page.php?action=unedit&site=' . $_GET['site'] . '"><img border="none" src="../editor/img/exit.png" alt="Quitter l'éditeur" onmouseout="this.src='../editor/img/exit.png';"  onmouseover="this.src='../editor/img/exit_over.png';" name="setInfos" id="setInfos" value="Modifier les informations générales du site" /></a>
+
+			</td>
+			</tr>
+			</table>
+			<div id="outils" style="width:50px;"></div>
+			
+		</div>
+		<br />
+		<br />
+		
+		<div id="entete">
+			<h1><a href="#">Page</a></h1>
+		</div>
+		<div id="navigation">
+		    <a href="#">Page 1</a>
+		    <a href="#">Page 2</a>
+		    <a href="#">Page 3</a>
+		</div>
+
+		<div id="centre">
+			<div id="principal">
+			    <a href="#" id="supprPageButton"><img id="boutonSuppr" src="img/icon_close.png" onmouseout="this.src='img/icon_close.png'" onmouseover="this.src='img/icon_close_over.png'" /></a>
+			    <h2><div id="titre" class="titre">Cliquez ici pour ajouter un titre &agrave; votre page</div></h2>
+				<input type="button" id="saveTitreButton" value="Enregistrer" disabled="true" style="visibility:hidden;" />
+				<input type="button" id="cancelTitreButton" value="Annuler" style="visibility:hidden;" />
+
+				<div id="contenu">Cliquez ici pour rédiger le contenu de votre nouvelle page.</div>
+			<input type="button" id="saveContenuButton" value="Enregistrer" disabled="true" style="visibility:hidden;" />
+			<input type="button" id="cancelContenuButton" value="Annuler" style="visibility:hidden;" />
+
+			<br />
+			<br />
+			
+			Pages : <a href="./moteur.php?action=detail&num=162">1</a>
+				<a href="./moteur.php?action=detail&num=161">2</a>
+				<a href="./moteur.php?action=detail&num=160">3</a>
+				<a href="./moteur.php?action=detail&num=159">4</a>
+				<a href="./moteur.php?action=detail&num=158">5</a>
+				<a href="./moteur.php?action=detail&num=157">6</a>
+				<a href="./moteur.php?action=detail&num=156">7</a>
+				<a href="./moteur.php?action=detail&num=161">></a>
+	            <div id= "pagesite">
+	                <br><br><br><TABLE BORDER='0'><tr><td width="250"> <center> <a href="./moteur.php?action=detail&num=162">jhghjg</a></center></td><td width="250"> <center> <a href="./moteur.php?action=detail&num=161">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</a></center></td><td width="250"> <center> <a href="./moteur.php?action=detail&num=160">jkgj</a></center></td><td width="250"> <center> <a href="./moteur.php?action=detail&num=159">hgjhg</a></center></td></tr><tr><td width="250"> <center> <a href="./moteur.php?action=detail&num=158">page1</a></center></td><td width="250"> <center> <a href="./moteur.php?action=detail&num=157">page3</a></center></td><td width="250"> <center> <a href="./moteur.php?action=detail&num=156">page2</a></center></td></tr></table>
+		    </div>
+		    <br/><br/>
+	            <a class="fb_share_button" style="text-decoration: none;" onclick="return fbs_click()" href="http://www.facebook.com/share.php?u=http://localhost/ProjetTut/index.php/page/jhjh" target="_blank"><img src="http://b.static.ak.fbcdn.net/images/share/facebook_share_icon.gif?8:26981" alt="" /></a>
+	            
+	            </div><!-- #principal -->
+	            
+	            
+	            <div id ="copyright">   
+	                <a href="../portail/index.php">Portail de Creation EasyWeb</a>
+	                
+	            </div>
+	
+	        </div><!-- #centre -->
+		</div>
+		
+		<!-- This contains the hidden content for inline calls -->
+		<div style='display:none' >
+			<div id='infos' style='padding:10px; background:#fff;color:#000000'>
+				<strong>Modification des informations : </strong>
+				<br/><br/>
+				
+				<form id="modif_info">
+					<label for="titre_site">Titre : </label>
+					<br/>
+					<input type="text" id="titre_site"/>
+					
+					<br/>
+
+					<label for="categ_site">Catégorie : </label>
+					<br/>
+					<select id="categ_site">
+						<option>Je modifie l'option pour que julien puisse update</option>
+						<option>Test</option>
+						<option>AHha</option>
+					</select>
+					
+					<br/>	
+					
+					<label for="mot_cle_site">Mots clé : </label>
+					<br/>
+					<input type="text" id="mot_cle_site"/>
+					
+					<br/>
+					
+					<label for="description_site">Description : </label>
+					<br/>
+					<textarea id="description_site" rows="4" cols="35"><textarea>
+					
+					<br/>
+					
+					<input type="submit" value="enregistrer"/>
+					blablabla
+					<input type="image" name="img_envoi" src="/simages/loading.gif"/>
+				</form>
+			</div>
+		</div>
+		
+	</body>
+</html>

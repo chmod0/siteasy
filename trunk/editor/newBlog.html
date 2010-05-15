@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="goog/base.js"></script>
+		<script>
+			goog.require("goog.dom");
+			goog.require("goog.editor.SeamlessField");
+			goog.require('goog.editor.Command');
+			goog.require('goog.editor.plugins.BasicTextFormatter');
+			goog.require('goog.editor.plugins.EnterHandler');
+			goog.require('goog.editor.plugins.HeaderFormatter');
+			goog.require('goog.editor.plugins.ListTabHandler');
+			goog.require('goog.editor.plugins.LoremIpsum');
+			goog.require('goog.editor.plugins.RemoveFormatting');
+			goog.require('goog.editor.plugins.SpacesTabHandler');
+			goog.require('goog.editor.plugins.UndoRedo');
+			goog.require('goog.ui.editor.DefaultToolbar');
+			goog.require('goog.ui.editor.ToolbarController');
+
+		</script>
+
+		<!-- on intégre le script de l'éditeur et de l'enregistreur -->
+		<script src="editorBlog.js"></script>
+		<script src="fonctionsAjax.js"></script>
+		<script src="newBlog.js"></script>
+
+		<link rel="stylesheet" href="../blog/css/dark.css" />
+		<link rel="stylesheet" href="css/button.css" /> 
+		<link rel="stylesheet" href="css/menus.css" /> 
+		<link rel="stylesheet" href="css/toolbar.css" /> 
+		<link rel="stylesheet" href="css/colormenubutton.css" /> 
+		<link rel="stylesheet" href="css/palette.css" /> 
+		<link rel="stylesheet" href="css/colorpalette.css" /> 
+		<link rel="stylesheet" href="css/editortoolbar.css" /> 
+
+		<link rel="stylesheet" href="css/editor.css" />
+	</head>
+	<body onload="initFields('');">
+	    <div id="editorBanner"><table><tr><td><a href="#">Ajout un billet</a></td><td><a href="#">Ajouter une catégorie</a></td><td><a href="#">Modifier les informations du site</a></td></tr></table><div id="outils" style="width:50px;"></div></div>
+		<div id="entete">
+			<h1><a href="#">Blog</a></h1>
+		</div>
+		<div id="gauche">
+			<h3>Catégories</h3>
+		</div>
+
+		<div id="droite">
+			<h3>Billets</h3>
+
+		</div>
+
+		<div id="centre">
+			<div id="billet" class="billet">
+			    <a href="#" id="supprBilletButton"><img id="boutonSuppr" src="img/icon_close.png" onmouseout="this.src='img/icon_close.png'" onmouseover="this.src='img/icon_close_over.png'" /></a>
+				<div id="titre" class="titre">Cliquez ici pour ajouter un titre au billet</div>
+				<input type="button" id="saveTitreButton" value="Enregistrer" disabled="true" style="visibility:hidden;" />
+				<input type="button" id="cancelTitreButton" value="Annuler" style="visibility:hidden;" />
+
+				<div id="contenu">
+					<p>Cliquez ici pour rédiger le contenu de votre nouveau billet.</p>
+				</div>
+				
+			</div>
+			<input type="button" id="saveContenuButton" value="Enregistrer" disabled="true" style="visibility:hidden;" />
+			<input type="button" id="cancelContenuButton" value="Annuler" style="visibility:hidden;" />
+			<br />
+			Catégorie : <select type="text" id="categ_billet">
+			    <option id="aucune">Aucune</option><option id="sport">Sport</option><option id="Info">Informatique</option>
+			</select>
+
+
+		</div>
+	</body>
+</html>

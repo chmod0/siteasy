@@ -1,0 +1,237 @@
+
+body {
+	color: #535353;
+	background: #92d698;
+	
+}
+a {
+	color: #4c8fb1;
+}
+a:hover, a:focus {
+	color: #FF4C00;
+}
+strong {
+	color: #A1B55D;
+}
+/* Edition */
+
+#edition{
+	width = 2cm;
+	color: #FF6533;
+	background: #c9f1cd;
+	float:top;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:8px;
+	
+	-webkit-bottom-left-border-radius:8px;
+	-webkit-bottom-right-border-radius:8px; 
+	
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:8px;	
+	
+	
+}
+#edition a {
+	color: #4c8fb1;
+	text-decoration: none;
+}
+#edition a:hover, #navigation a:focus {
+	background: #000000;
+}
+
+
+
+
+
+
+/* Navigation */
+#navigation {
+	background: #c9f1cd;
+
+}
+#navigation a {
+	color: #4c8fb1;
+}
+#navigation a:hover, #navigation a:focus {
+	background: #FFFFFF;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:8px;
+	
+	-webkit-bottom-left-border-radius:8px;
+	-webkit-bottom-right-border-radius:8px; 
+	
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:8px;	
+	-webkit-top-left-border-radius:8px;
+	-webkit-top-right-border-radius:8px; 
+	
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+	
+}
+
+/* Bloc central */
+#centre {
+	background: url(img/08-colonnes.png) repeat-y; /* Voir -> Note 1 */
+	
+}
+
+/* Contenu principal */
+#principal {
+	color: #181A12;
+	background: #FFFFFF; /* -> 2 */
+}
+#principal a {
+	color: #332510;
+}
+#principal a:hover, #principal a:focus {
+	color: #6E5122;
+}
+#principal strong {
+	color: #181A12;
+}
+
+/* Contenu secondaire */
+#secondaire {
+	background: #181A12; /* -> 2 */
+}
+
+
+
+/* --- POSITIONNEMENT --- */
+
+/* Page */
+body {
+	
+	padding: 0px 5px;
+}
+
+
+
+
+
+#global {
+	margin-top:0;
+	width: 1000px;
+	margin: 0 auto; /* -> 3 */
+	x;
+}
+
+/* En-tête */
+#entete {
+	margin-left: 100px;
+	padding: 20px;
+}
+#entete:hover {
+	margin-left: 150px;
+	padding: 20px;
+}
+
+#entete h1  {
+	margin: 0;
+}
+#entete  a {
+	text-decoration: none;	
+}
+#entete h1 img {
+	float: left;
+	margin: 7px 20px 10px 0;
+}
+#entete .sous-titre {
+	margin: 4px 0 15px 0;
+	margin-left: 400px;
+}
+
+
+/* Menu de navigation */
+#navigation {
+	padding: 12px 15px;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:8px;
+	
+	-webkit-top-left-border-radius:8px;
+	-webkit-top-right-border-radius:8px; 
+	
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;	
+}
+#navigation ul {
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+}
+#navigation li.gauche {
+	float: left;
+	margin-right: 10px;
+	font-size: 1.4em;
+	font-style: italic;
+}
+#navigation li.droite {
+	float: right;
+	margin-right: 0;
+	margin-left: 10px;
+	padding: 3px 0;
+}
+#navigation a {
+	padding: 6px;
+	line-height: 1.5;
+	font-size: .9em;
+	text-decoration: none;
+}
+
+
+
+/* Bloc central */
+#centre {
+	width: 100%; /* -> 4 */
+	overflow: hidden; /* -> 4 */
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:8px;
+	
+	-webkit-bottom-left-border-radius:8px;
+	-webkit-bottom-right-border-radius:8px; 
+	
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:8px;	;
+}
+
+/* Contenu principal */
+#principal {
+	padding: 10px 20px;
+}
+#principal > :first-child {
+	margin-top: 10px;
+}
+#principal p, #principal li {
+	line-height: 1.5;
+}
+
+/* Contenu secondaire */
+#secondaire {
+	margin-left: 620px; /* -> 6 */
+	margin-right: 120px;
+	padding: 12px 0;
+}
+
+/* Mention de copyright */
+#copyright {
+	margin: 20px 0;
+	font-size: .85em;
+	text-align: left;
+}
+#edition a:hover, #navigation a:focus {
+	background: #FFFFFF;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:8px;
+	
+	-webkit-bottom-left-border-radius:8px;
+	-webkit-bottom-right-border-radius:8px; 
+	
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:8px;	
+}
+
+
