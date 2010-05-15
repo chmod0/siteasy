@@ -1,0 +1,20 @@
+#labels Phase-Implementation
+# Conventions à suivre pour le code PHP du projet
+
+= Introduction =
+
+Pour avoir un code cohérent et lisible, il faudrait respecter des conventions de codage en PHP. J'ai choisi les conventions imposées par Zend, le framework PHP le plus utilisé, parce que apparemment c'est ce qui se fait le plus couramment (vu qu'aucune convention de codage n'a l'air conseillée officiellement pour PHP).
+On peut bien sûr tout changer et refaire nos propres conventions, mais autant profiter de ce qui est déjà utilisé.
+
+= Démarcation du code PHP =
+
+Le code PHP doit être délimité par les balises PHP complètes :
+{{{
+<?php
+
+?>
+}}}
+
+= Page avec les conventions complètes =
+
+http://framework.zend.com/manual/en/coding-standard.coding-style.html
