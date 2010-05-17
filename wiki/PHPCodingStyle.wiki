@@ -15,6 +15,59 @@ Le code PHP doit être délimité par les balises PHP complètes :
 ?>
 }}}
 
+= Chaînes =
+
+Les chaînes doivent toujours être délimitées par des apostrophes (quotes simples)
+{{{
+$a = 'Example String';
+}}}
+
+Il est possible d'utiliser des quotes doubles lorsque la chaîne contient des apostrophes (requêtes SQL par exemple)
+{{{
+$sql = "SELECT `id`, `name` from `people` "
+       . "WHERE `name`='Fred' OR `name`='Susan'";
+}}}
+Cette syntaxe est préférée à l'échapement des quotes car elle est plus lisible.
+
+Les chaînes doivent être concaténées de la manière suivante, les espaces améliorent la lisibilité :
+{{{
+$company = 'Zend' . ' ' . 'Technologies';
+}}}
+Il est encouragé de couper la chaîner en plusieurs lignes pour améliorer la lisibilité.
+{{{
+$sql = "SELECT `id`, `name` FROM `people` "
+     . "WHERE `name` = 'Susan' "
+     . "ORDER BY `name` ASC ";
+}}}
+
+= Arrays =
+
+Les arrays doivent être déclarés de la manière suivante, avec un espace après chaque virgule :
+{{{
+$sampleArray = array(1, 2, 3, 'Zend', 'Studio');
+}}}
+Les arrays déclarés sur plusieurs lignes doivent être alignés :
+{{{
+$sampleArray = array(1, 2, 3, 'Zend', 'Studio',
+                     $a, $b, $c,
+                     56.44, $d, 500);
+}}}
+Les valeurs peuvent aussi commencer à la ligne suivante. Le niveau d'indentation des valeurs est dans ce cas d'un niveau supérieur à la ligne d'au dessus. Toutes les lignes doivent avoir ensuite la même indentation et la fermeture de l'array se fait à la ligne au premier niveau d'indentation.
+{{{
+$sampleArray = array(
+    1, 2, 3, 'Zend', 'Studio',
+    $a, $b, $c,
+    56.44, $d, 500,
+);
+}}}
+Il est encouragé d'insérer une virgule après la dernière valeur, afin de ne pas l'oublier en cas de modification ultérieure.
+
+Lors de l'utilisation d'arrays associatifs avec le constructeur array(), il est conseillé d'écrire la déclaration sur plusieurs lignes. Chaque ligne doit être complétée avec des espaces afin que les clés et les valeurs soient alignées :
+{{{
+$sampleArray = array('firstKey'  => 'firstValue',
+                     'secondKey' => 'secondValue');
+}}}
+
 = Page avec les conventions complètes =
 
 http://framework.zend.com/manual/en/coding-standard.coding-style.html
