@@ -68,6 +68,69 @@ $sampleArray = array('firstKey'  => 'firstValue',
                      'secondKey' => 'secondValue');
 }}}
 
+La première valeur de l'array peut également se trouver sur la ligne suivante. De la même manière que pour les chaînes, la valeur doit se trouver à un niveau d'indentation supérieure à la ligne précédente. Les lignes suivantes doivent être indentées de la même manière, la fermeture de l'array se fait sur une ligne séparée au premier niveau d'indentation. Les clés, le symbole "=>" et les valeurs doivent être alignés :
+{{{
+$sampleArray = array(
+    'firstKey'  => 'firstValue',
+    'secondKey' => 'secondValue',
+);
+}}}
+Il est encouragé de mettre une virgule supplémentaire à la fin de la dernière ligne, pour éviter un oubli plus tard.
+
+= Classes =
+
+== Déclaration des classes ==
+
+Les classes doivent être nommées suivant les conventions de Zend. L'accolade se trouve *en dessous du nom de la classe*. Chaque classe doit avoir un bloc de documentation conforme au standard PHPDocumentor.
+Tout le code à l'intérieur d'une classe doit être indenté avec *4 espaces*.
+Une classe seulement est permise par fichier PHP.
+Placer du code supplémentaire dans les fichiers de classes est permis mais découragé. Dans ce cas, 2 lignes vides doivent séparer la classe du code additionnel.
+
+=== Déclaration de classe acceptable : ===
+{{{
+/**
+* Documentation Block Here
+*/
+class SampleClass
+{
+    // all contents of class
+    // must be indented four spaces
+}
+}}}
+
+Les classes qui héritent d'autres classes ou qui implémentent des interfaces doivent déclarer ces dépendances sur la même ligne :
+{{{
+class SampleClass extends FooAbstract implements BarInterface
+{
+}
+}}}
+
+Si la longueur de la ligne dépasse la _longueur maximale autorisée_, effectuer un retour à la ligne avant les mots "extends" ou "implements", et indenter ces lignes d'un niveau :
+{{{
+class SampleClass
+    extends FooAbstract
+    implements BarInterface
+{
+}
+}}}
+
+De même, si la classe implémente plusieurs interfaces et si cela aboutit à un dépassement de la taille maximale d'une ligne, retourner à la ligne après chaque virgule séparant les interfaces, et indenter les noms pour qu'ils s'alignent :
+{{{
+class SampleClass
+    implements BarInterface,
+               BazInterface
+{
+}
+}}}
+
+== Attributs de classe ==
+Les attributs de classes doivent être nommés selon les conventions de nommage de Zend. Toute variable déclarée dans une classe doit être listée en haut de la classe, au dessous de la déclaration de toute méthode.
+Le constructeur _var_ n'est pas permis. Les attributs déclarent toujours leur visibilité avec les mots-clé _private_, _protected_, ou _public_. Donner l'accès à un attribut directement en le déclarant _public_ est permis mais découragé, en faveur des méthodes d'accès get & set.
+
+= Fonctions et méthodes =
+
+== Déclarations ==
+
 = Page avec les conventions complètes =
 
 http://framework.zend.com/manual/en/coding-standard.coding-style.html
