@@ -1,0 +1,7 @@
+#summary Conventions de nommage PHP et Javascript.
+#labels Phase-Implementation
+
+= Introduction =
+Pour avoir un code cohérent et lisible, il faudrait respecter des conventions de nommage en PHP et Javascript. J'ai choisi les conventions imposées par Zend, le framework PHP le plus utilisé, parce que apparemment c'est ce qui se fait le plus couramment (vu qu'aucune convention de codage n'a l'air conseillée officiellement pour PHP). On peut bien sûr tout changer et refaire nos propres conventions, mais autant profiter de ce qui est déjà utilisé.
+
+*Ici il s'agit bien du nommage des variables/classes/méthodes, non pas du style du code à adopter.*
