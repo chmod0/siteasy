@@ -1,0 +1,163 @@
+@import url(../../../editor/goog/css/common.css);
+
+BODY{
+	background-color:#323f47;
+	color:#e0e0e0;
+	
+	font-family:Verdana;
+	font-size:12px;
+}
+BODY a{ 
+	text-decoration:none;
+	color:#e0e0e0;
+}
+BODY a:hover{ 
+	color:#90c7e1;
+}
+
+#entete{
+	height:75px;
+	background-color:#323f47;
+}
+
+#entete h1{
+	font-style:italic;
+	font-size:3em;
+	color:#ffffff;
+	
+	padding-left:300px;
+
+	-webkit-transition-property: padding-left;
+	-webkit-transition-timing-function: ease;
+	-webkit-transition-duration: 0.5s;	
+	-moz-transition-property: padding-left;	
+	-moz-transition-timing-function: ease; 
+	-moz-transition-duration: 0.5s;
+	
+	text-shadow: 0px 0px 15px #323f47;
+}
+
+#entete h1 a{
+	color:#ffffff;
+}
+
+#entete h1:hover{
+	padding-left: 330px; 
+}
+
+#gauche{
+	float:left;
+	width:170px;
+	padding:8px;
+	padding-top:0px;
+	margin-left:5px;
+	
+	background-color:#1e272c;
+	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
+#gauche h3{
+	color:#90c7e1;
+
+	text-align:center;
+	font-size:1.2em;
+	border-bottom:1px solid #b8d2d2;
+}
+
+#droite{
+	float:right;
+	width:170px;
+	padding:8px;
+	padding-top:0px;
+	margin-right:5px;
+	
+	background-color:#1e272c;
+	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
+#droite h3{
+	color:#90c7e1;
+
+	text-align:center;
+	font-size:1.2em;
+	
+	border-bottom:1px solid #b8d2d2;
+}
+
+#centre{ 
+	margin-right:200px;
+	margin-left:200px;
+	padding:10px;
+
+	background-color:#1e272c;
+	color:#e0e0e0;
+	
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px; 
+	border-radius:5px;
+}
+	
+#basdepage{ 
+	clear:both;
+	
+	margin:8px; 
+	margin-right:200px;
+	margin-left:200px;
+	padding:8px;
+	
+	color:#949494;
+	
+	background-color:#1e272c;
+	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+#namecat{
+	float:left;
+	padding:5px;
+	
+	color:#454545;
+	background-color:#cacaca;
+	
+	-moz-topright-border-radius:5px;
+	-moz-bottomright-border-radius:5px;
+	
+	-webkit-border-bottom-right-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	
+	border-bottom-right-radius:5px;
+	border-top-right-radius:5px;
+}
+
+#descat{
+	float:left;
+	margin-left: 25px;
+	padding:5px;
+
+}
+
+.popup{
+	text-align:center; 
+	color:#20e55d; 
+}
+
+.error{
+	text-align:center; 
+	color:#ff2121; 
+}
+
+.titre{
+	color:#90c7e1;
+	border-bottom:1px solid #b8d2d2;
+	font-size:1.7em;
+}
+.titre a{
+	color:#90c7e1;
+}

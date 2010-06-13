@@ -1,0 +1,148 @@
+BODY{
+	background-color:#f6fbff;
+	color:#4086cc;
+	
+	font-family:Verdana;
+	font-size:12px;
+}
+BODY a{ 
+	text-decoration:none;
+	color:#77ade5;
+}
+BODY a:hover{ 
+	color:#4086cc;
+}
+
+#entete{
+	height:75px;
+	
+	color:#77ade5;
+	background-color:#f6fbff;
+}
+
+#entete h1{
+	font-style:italic;
+	font-size:3em;
+	
+	padding-left:300px;
+
+	-webkit-transition-property: color,padding-left;
+	-webkit-transition-timing-function: ease;
+	-webkit-transition-duration: 0.5s;	
+	-moz-transition-property: color,padding-left;	
+	-moz-transition-timing-function: ease; 
+	-moz-transition-duration: 0.5s;
+}
+
+#entete h1:hover{
+	color:#4086cc;
+	
+	padding-left: 330px; 
+}
+
+#gauche{
+	float:left;
+	width:220px;
+	padding:8px;
+	padding-top:0px;
+	margin-left:40px;
+	
+	background-color:#e9f4ff;
+	border:1px solid #9ac5f0;
+	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
+#gauche h3{
+	color:#4086cc;
+
+	text-align:center;
+	font-size:1.2em;
+	border-bottom:1px solid #9ac5f0;
+}
+
+#droite{
+	float:right;
+	width:220px;
+	padding:8px;
+	padding-top:0px;
+	margin-right:40px;
+	
+	background-color:#e9f4ff;
+	border:1px solid #9ac5f0;
+	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
+#droite h3{
+	color:#4086cc;
+
+	text-align:center;
+	font-size:1.2em;
+	border-bottom:1px solid #9ac5f0;
+}
+
+#centre{ 
+	margin-right:300px;
+	margin-left:300px;
+	padding:10px;
+	
+	background-color:#e9f4ff;
+	color:#4086cc;
+	border:1px solid #9ac5f0;
+
+	-moz-border-radius:5px; ; 
+	-webkit-border-radius:5px; 
+	border-radius:5px;
+}
+#centre p{
+	color:#9ac5f0;
+	text-align:justify;
+	
+	-moz-transition-property: color;
+	-moz-transition-duration: 1s;
+	-webkit-transition-property: color;
+	-webkit-transition-duration: 1s; 
+	transition-property: color;
+	transition-duration: 1s; 
+}	
+#centre p:hover{
+	color: #4086cc;
+}
+
+#basdepage{ 
+	clear:both;
+	
+	margin:8px; 
+	margin-right:300px;
+	margin-left:300px;
+	padding:8px;
+	
+	color:#4086cc;
+	background-color:#e9f4ff;
+	
+	border:1px solid #9ac5f0;
+	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
+.popup{
+	text-align:center; 
+	color:#00ff5a; 
+}
+
+.error{
+	text-align:center; 
+	color:#ff0a0a; 
+}
+
+.titre{
+	border-bottom:1px solid #9ac5f0;
+	font-size:1.5em;
+}

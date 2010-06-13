@@ -1,0 +1,41 @@
+#editorBanner
+{ /* menu fixe en haut de l'écran */
+    position: fixed ; /* position du menu = par rapport Ã  la boite parent (ici le body) */
+    top: 0 ; /* Le haut du menu est Ã  0 pixels du haut de l'Ã©cran */ 
+    left: 0 ; /* La gauche du menu est Ã  0 pixels du bas de l'Ã©cran */ 
+    width: 100% ; /* largeur du menu = 110% de l'Ã©cran (pour bug de IE) */
+    height: 40px ; /* hauteur du menu = 20 pixels */
+    background-color : #deeef7 ; /* la couleur du menu */
+    background-image : url('../img/banner.png') ;
+    background-repeat : no-repeat ;
+    border-bottom: solid black 1px ; /* Bordure basse du menu haut*/
+}
+
+#editorBanner table
+{
+    padding-left: 200px;
+    margin-top : 3px;
+}
+
+#editorBanner td a
+{
+    font-size: 1.2em;
+    color : black;
+    padding-left : 10px;
+    padding-right : 10px;
+}
+
+#boutonSuppr
+{
+    float: right;
+}
+
+#outils
+{
+}
+
+#titre:hover, #contenu:hover
+{
+    border:1px dashed grey;
+}
+

@@ -1,0 +1,117 @@
+/*
+Use of this source code is governed by an Apache 2.0 License.
+See the COPYING file for details.
+*/
+
+/*
+ * Copyright 2009 Google Inc.  All Rights Reserved.
+ *
+ * Standard styling for goog.ui.Dialog.
+ *
+
+
+ */
+
+
+.modal-dialog {
+  background: #deeef7;
+  border: 1px solid #a8d0e4;
+  color: #535353;
+  padding: 4px;
+  position: absolute;
+  width: 500px;
+}
+
+.modal-dialog a,
+.modal-dialog a:link,
+.modal-dialog a:visited  {
+  color: #06c;
+  cursor: pointer;
+}
+
+.modal-dialog-bg {
+  background: #deeef7;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.modal-dialog-title {
+  background: #deeef7;
+  color: #5290af;
+  cursor: pointer;
+  font-size: 120%;
+  font-weight: bold;
+  padding: 8px 15px 8px 8px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.modal-dialog-title-close {
+  /* Client apps may override the URL at which they serve the sprite. */
+  background: #e0edfe url(../img/tiny_icon_close.png) no-repeat; 
+  cursor: default;
+  height: 15px;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  width: 15px;
+}
+
+.modal-dialog-buttons,
+.modal-dialog-content {
+  background-color: #fff;
+  padding: 8px;
+}
+
+.goog-buttonset-default {
+  font-weight: bold;
+}
+
+input[type=text]
+{
+	border:1px solid #bbb;
+	padding:3px;
+	width:170px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+input[type=text]:focus
+{
+	outline:none;
+	border:1px solid #aaa;
+}
+
+select
+{
+	border:1px solid #bbb;
+	padding:2px;
+	width:175px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+select:focus
+{
+	outline:none;
+	border:1px solid #aaa;
+}
+
+textarea
+{
+	border:1px solid #bbb;
+	padding:3px;
+
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+textarea:focus
+{
+	outline:none;
+	border:1px solid #aaa;
+}
