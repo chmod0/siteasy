@@ -17,9 +17,6 @@ function saveTitre()
 
 }
 
-
-
-
 function reloadMenu(numPage)
 {
     objetXHRSave = creationXHR();
@@ -30,23 +27,19 @@ function reloadMenu(numPage)
     objetXHRSave.send(parametres);
 }
 
-
 function afficheMenu()
 {
     if(objetXHRSave.readyState == 4)
     {
 	if(objetXHRSave.status == 200)
 	{
-	     var resultat = objetXHRSave.responseText;
-	     var menus = resultat.split("&|-|&");
-	     document.getElementById("navigation").innerHTML = menus[0];
-	     document.getElementById("pagesite").innerHTML = menus[1];
+	    var resultat = objetXHRSave.responseText;
+	    var menus = resultat.split("&|-|&");
+	    document.getElementById("navigation").innerHTML = menus[0];
+	    document.getElementById("pagesite").innerHTML = menus[1];
 	}
     }
 }
-
-
-
 
 function saveContenu()
 {
@@ -111,7 +104,7 @@ function supprPageReturn()
 	if(objetXHRSupprPage.status == 200)
 	{
 	    var reponse = objetXHRSupprPage.responseText;
-	    
+
 	    if(reponse != "OK")
 	    {
 		alert("Impossible de supprimer cette Page");
@@ -119,10 +112,8 @@ function supprPageReturn()
 		// on retourne à l'acceuil du site si on a supprimé
 		var nom_site = document.getElementById("nomSite").value;
 		document.location="./index.php?site="+nom_site;
-		
+
 	    }
 	}
     }
 }
-
-

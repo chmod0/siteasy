@@ -76,16 +76,16 @@ class AffichageEditeur{
 
 	    }
 	}
-        $id = $billet->getAttr('id_billet');
+	$id = $billet->getAttr('id_billet');
 	$idi= $billet->getAttr('image');
-		if ($idi!=0){
-		        $image=image::findById($idi);
-		        $titre = $image->getAttr('nom_image');
-		        $nom_dur = $idi;
-		        $nom_dur .= '.'.substr($titre, -3);
-		        $url_image = '../image/image/'.$nom_dur;
-			$im .= "&nbsp;<img src=\"$url_image\"  height=\"200\" width=\"200\" style=\"cursor:url('../editor/img/icon_close.png');\" onClick = 'javascript:dialogSupImageBlog(".$id.");' />&nbsp;";
-		}
+	if ($idi!=0){
+	    $image=image::findById($idi);
+	    $titre = $image->getAttr('nom_image');
+	    $nom_dur = $idi;
+	    $nom_dur .= '.'.substr($titre, -3);
+	    $url_image = '../image/image/'.$nom_dur;
+	    $im .= "&nbsp;<img src=\"$url_image\"  height=\"200\" width=\"200\" style=\"cursor:url('../editor/img/icon_close.png');\" onClick = 'javascript:dialogSupImageBlog(".$id.");' />&nbsp;";
+	}
 
 	$liste .= '</select>';
 	$ret = '<div id="billet">
@@ -94,7 +94,7 @@ class AffichageEditeur{
 	    <input type="button" id="saveTitreButton" value="Enregistrer" disabled="true" style="visibility:hidden;" />
 	    <input type="button" id="cancelTitreButton" value="Annuler" style="visibility:hidden;" />
 
-		<center>'.$im.'</center>
+	    <center>'.$im.'</center>
 
 
 	    <div id="contenu">' .$billet->getAttr('contenu_billet'). '</div>
@@ -105,15 +105,15 @@ class AffichageEditeur{
 	    Cat&eacute;gorie : 
 	    '.$liste.'
 
-              <input type="button" id="saveCate" value="Enregistrer" onClick = "saveCate()"  style="visibility:hidden;" />
-              <input type="button" id="annulCate" value="Annuler" onClick = "cacherSauvCate()" style="visibility:hidden;" />
+	    <input type="button" id="saveCate" value="Enregistrer" onClick = "saveCate()"  style="visibility:hidden;" />
+	    <input type="button" id="annulCate" value="Annuler" onClick = "cacherSauvCate()" style="visibility:hidden;" />
 
 
 	    <br/><div style="text-align:right"><em>Post&eacute; le '.substr($billet->getAttr('date_billet'),8,2). '/' .substr($billet->getAttr('date_billet'),5,2). '/' .substr($billet->getAttr('date_billet'),0,4).' &agrave; '.substr($billet->getAttr('date_billet'),10,20).'</em></div><br/>';
 
 	return $ret;
     }
-    
+
     /**
      * Méthode permettant d'afficher une liste de billets passée en paramètre
      */
@@ -132,10 +132,10 @@ class AffichageEditeur{
 	    $ret .= '<br/><br/><div style="text-align:center"><b>Aucun billet trouv&eacute; dans cette cat&eacute;gorie</b></div><br/>';
 	}else{
 	    foreach ($billets as $billet){
-		
+
 		$suite = '';
 		if (strlen($billet->getAttr('contenu_billet')) > 200){
-		    
+
 		    $suite = '...<a href="blog.php?action=detail&id=' .$billet->getAttr('id_billet'). '&site=' . $site . '"><strong> Lire la suite</strong></a>';
 		}
 
@@ -185,20 +185,20 @@ class AffichageEditeur{
 		$html .= '<option' . (($titre_cat == $categ) ? ' selected="selected"' : '') . '>' . $titre_cat . '</option>';
 	    }
 	    $html .= '</select>
-		    <br />
-			<label for="modif_design_site" >Design : </label>
-			<br />
-			<select id="modif_design_site">';
+		<br />
+		<label for="modif_design_site" >Design : </label>
+		<br />
+		<select id="modif_design_site">';
 	    foreach($tab_designs as $des)
 	    {
-		    $id_des = $des->getAttr('id_design');
-		    $lib_des = $des->getAttr('libelle_design');
-		    $html .= '<option id="' . $id_des . '"' . (($design_site == $id_des) ? ' selected="selected"' : '') . '>' . $lib_des . '</option>';
+		$id_des = $des->getAttr('id_design');
+		$lib_des = $des->getAttr('libelle_design');
+		$html .= '<option id="' . $id_des . '"' . (($design_site == $id_des) ? ' selected="selected"' : '') . '>' . $lib_des . '</option>';
 	    }
 	    $html .= '</select>
 		<br/>	
 
-              
+
 
 
 
@@ -275,8 +275,8 @@ goog.require("goog.ui.Dialog");
 		</script>
 
 		<!-- on int�gre le script de l\'�diteur et de l\'enregistreur -->
-		
-            <script type="text/javascript" src="../portail/js/json.js"></script>
+
+	    <script type="text/javascript" src="../portail/js/json.js"></script>
 		<script src="../editor/editorBlog.js"></script>
 		<script src="../editor/fonctionsDialog.js"></script>
 		<script src="controller/fonctionsDialogCategorie.js"></script>
@@ -291,10 +291,10 @@ goog.require("goog.ui.Dialog");
 		<link rel="stylesheet" href="../editor/goog/css/palette.css" /> 
 		<link rel="stylesheet" href="../editor/goog/css/colorpalette.css" /> 
 		<link rel="stylesheet" href="../editor/goog/css/editortoolbar.css" /> 
-		
+
 		<link rel="stylesheet" href="../editor/css/editor.css" />
 		<link rel="stylesheet" href="../editor/css/dialog.css" /> 
-		
+
 
 	</head>';
     if($id != null)
@@ -314,7 +314,7 @@ goog.require("goog.ui.Dialog");
 			<td>
 			<a href="#" onclick="showCategDialog();"><img border="none" src="../editor/img/addCateg.png" alt="Ajouter un billet" onmouseout="this.src=\'../editor/img/addCateg.png\';"  onmouseover="this.src=\'../editor/img/addCateg_over.png\';" name="addCateg" id="addCateg" value="Ajouter une cat�gorie" /></a>
 			</td>';
-   
+
     if(strcmp($_GET['action'],'detail')==0)
     {
 			$html.=' <td>
@@ -336,7 +336,7 @@ goog.require("goog.ui.Dialog");
 
 			</div>
 			<input type="hidden" id="deb" value="0" />
-                        <input type="hidden" id="id" value="' . $id . '" />
+			<input type="hidden" id="id" value="' . $id . '" />
 			<br />
 			';
     return $html;

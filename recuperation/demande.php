@@ -7,17 +7,11 @@ $mail = $_GET['mail'];
 
 $recup = recuperation::findById($id);
 if($recup!=null){
-	header("Location: ../portail/nouveauMDP.php?id=$id&mail=$mail");
-	
-
+    header("Location: ../portail/nouveauMDP.php?id=$id&mail=$mail");
 }else{
-	
-	header('Location: ../portail/index.php');
 
-
+    header('Location: ../portail/index.php');
 
 }
-
-
 
 ?>

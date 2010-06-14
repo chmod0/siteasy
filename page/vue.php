@@ -30,21 +30,21 @@ class vue {
 	$tab = Page::findBySite($nom_site);
 	return $res;	
     }
-    
+
     static function affichePageEdition($page){
 	$titre = $page->getAttr('titre_page');
-	
+
 	// affichage du titre et des boutons de sauvegarde/annulation
 	$res .= "<h2 align=\"center\"><div id='titre'>$titre</div></h2>";
 	$res .= '<input type="button" id="saveTitreButton" value="Enregistrer" disabled="true" style="visibility:hidden;" />
-		<input type="button" id="cancelTitreButton" value="Annuler" style="visibility:hidden;" />';
+	    <input type="button" id="cancelTitreButton" value="Annuler" style="visibility:hidden;" />';
 	$res .= '<br />'; 
 	// affichage du titre et des boutons de sauvegarde/annulation
 	$res .= '<div id="contenu">';
 	$res .= $page->getAttr('contenu_page');
 	$res .= '</div>';
 	$res .= '<input type="button" id="saveContenuButton" value="Enregistrer" disabled="true" style="visibility:hidden;" />
-		<input type="button" id="cancelContenuButton" value="Annuler" style="visibility:hidden;" />'; 
+	    <input type="button" id="cancelContenuButton" value="Annuler" style="visibility:hidden;" />'; 
 	$nom_site = $page->getAttr('nom_site');		
 	$tab = lien::findByPage($page->getAttr('num_page'));
 	$res .= vue::AfficheLienPage($tab);
@@ -74,8 +74,6 @@ class vue {
 	return $res;
     }
 
- 
-
     static function acceuilPage($nom_site){
 	if (!empty($nom_site)){
 	    $tab = Page::findBySite($nom_site);
@@ -97,7 +95,6 @@ class vue {
 	    return $menu;
 	}
     }
-
 
 /*
     static function ListePage($tab,$indice){
@@ -148,7 +145,7 @@ class vue {
 	    return $res;
 	}
     }
-*/
+ */
     static function NomPage($tab, $nom_site){
 	if (!empty($tab)){
 	    $nb = count($tab);

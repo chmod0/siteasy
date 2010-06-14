@@ -20,24 +20,24 @@ class SiteController
 	switch($action)
 	{
 	case 'detailsSite':
-		require_once("../design/design.php");
-		require_once("../modele/Modele.php");
+	    require_once("../design/design.php");
+	    require_once("../modele/Modele.php");
 
 	    $nom_site = $_POST['nomSite'];
 	    //création d'un objet Site qui contient toutes les données d'un site
 	    $site = Site::findByNomSite($nom_site);
-		
-		// Modification de l'objet site pour avoir les libelles du modele et du design 
-		$modid = $site->getAttr('id_modele');
-		$mod = Modele::findById($modid);
-		$modlib = $mod->getAttr('libelle_modele');
-		
-		$desid = $site->getAttr('id_design');
-		$des = design::findById($desid);
-		$deslib = $des->getAttr('libelle_design');
-		
-		$site->setAttr('id_modele', $modlib);
-		$site->setAttr('id_design', $deslib);
+
+	    // Modification de l'objet site pour avoir les libelles du modele et du design 
+	    $modid = $site->getAttr('id_modele');
+	    $mod = Modele::findById($modid);
+	    $modlib = $mod->getAttr('libelle_modele');
+
+	    $desid = $site->getAttr('id_design');
+	    $des = design::findById($desid);
+	    $deslib = $des->getAttr('libelle_design');
+
+	    $site->setAttr('id_modele', $modlib);
+	    $site->setAttr('id_design', $deslib);
 	    // on passe l'objet en array pour pouvoir le transmettre en JSON
 	    $array_site = $site->toArray();
 
@@ -48,7 +48,7 @@ class SiteController
 
 	    echo $resultatJSON;
 	    break;
-	    
+
 	case 'modifDetails':
 	    $nom_site = $_REQUEST['nom_site'];
 	    $titre_site = $_REQUEST['titre_site'];
@@ -61,7 +61,7 @@ class SiteController
 	    echo $description_site;
 	    $design_site = $_REQUEST['design_site'];
 	    echo $design_site;
-	    
+
 	    $site = Site::findByNomSite($nom_site);
 	    if($site != null)
 	    {

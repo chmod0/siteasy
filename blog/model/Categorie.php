@@ -98,7 +98,6 @@ class Categorie{
 
     }
 
-
     /**
      *   fonction qui supprime la ligne dans la table corrsepondant à l'objet courant
      *   L'objet doit posséder un OID
@@ -114,7 +113,6 @@ class Categorie{
 	    return mysql_affected_rows();
 	}
     }
-
 
     /**
      *   Insertion dans la base

@@ -41,36 +41,36 @@ class Affichage{
 	    <link href="../'.$path_design.'style.css" rel="stylesheet" type="text/css" media="screen"/>
 	    <link rel="stylesheet" href="../image/css/lightbox.css" type="text/css"  />
 	    <script type="text/javascript" src="../image/js/prototype.js"></script>
-            <script type="text/javascript" src="../image/js/scriptaculous.js?load=effects,builder"></script>
-            <script type="text/javascript" src="../image/js/lightbox.js"></script>
-	
-	    </head>
+<script type="text/javascript" src="../image/js/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="../image/js/lightbox.js"></script>
 
-	    <body>
-	    <div id="entete">
-	    <h1><a href="blog.php?site=' . $_GET['site'] . '">' . $titre . '</a></h1>
-	    </div>
+</head>
 
-	    <div id="gauche">
-	    <h3>Cat&eacute;gories</h3>
-	    '.$menuleft.'
-	    </div>
+<body>
+<div id="entete">
+<h1><a href="blog.php?site=' . $_GET['site'] . '">' . $titre . '</a></h1>
+</div>
 
-	    <div id="droite">
-	    <h3>Billets</h3>
-	    '.$menuright.'
-	    </div>
+<div id="gauche">
+<h3>Cat&eacute;gories</h3>
+'.$menuleft.'
+</div>
+
+<div id="droite">
+<h3>Billets</h3>
+'.$menuright.'
+</div>
 
 
-	    <div id="centre">
-	    '.$content.'
-	    <br/>
-	    </div>
+<div id="centre">
+'.$content.'
+<br/>
+</div>
 
-	    <div id="basdepage"><a href="../portail/index.php">Portail de cr&eacute;ation EasyWeb</a></div>
-	    </body>
-	    </html>
-	    ';
+<div id="basdepage"><a href="../portail/index.php">Portail de cr&eacute;ation EasyWeb</a></div>
+</body>
+</html>
+';
     }
 
     /**
@@ -78,24 +78,24 @@ class Affichage{
      */
     public function unBillet($billet,$commentaires){
 
-		$idIm= $billet->getAttr('image');
-		if ($idIm!=0){
-		        $image=image::findById($idIm);
-		        $titre = $image->getAttr('nom_image');
-		        $nom_dur = $idIm;
-		        $nom_dur .= '.'.substr($titre, -3);
-		        $url_image = '../image/image/'.$nom_dur;
+	$idIm= $billet->getAttr('image');
+	if ($idIm!=0){
+	    $image=image::findById($idIm);
+	    $titre = $image->getAttr('nom_image');
+	    $nom_dur = $idIm;
+	    $nom_dur .= '.'.substr($titre, -3);
+	    $url_image = '../image/image/'.$nom_dur;
 
 
 
-			$im .= "&nbsp;<a href=\"$url_image\"  rel=\"lightbox[roadtrip]\"><img src=\"$url_image\"  height=\"200\" width=\"200\" /></a>&nbsp;";
+	    $im .= "&nbsp;<a href=\"$url_image\"  rel=\"lightbox[roadtrip]\"><img src=\"$url_image\"  height=\"200\" width=\"200\" /></a>&nbsp;";
 
 
 
-		}
+	}
 	$ret = '<div class="titre">' .$billet->getAttr('titre_billet'). '</div><br/>
-		<center> '.$im.'</center>
-				<div class="contenu">' .$billet->getAttr('contenu_billet'). 
+	    <center> '.$im.'</center>
+	    <div class="contenu">' .$billet->getAttr('contenu_billet'). 
 	    '</div><br/><br/><div style="text-align:right"><em>Post&eacute; le '.substr($billet->getAttr('date_billet'),8,2). '/' .substr($billet->getAttr('date_billet'),5,2). '/' .substr($billet->getAttr('date_billet'),0,4).' &agrave; '.substr($billet->getAttr('date_billet'),10,20).'</em></div><br/>';
 	$ret .= '<div style="color:#90c7e1 ;border-bottom:1px solid #b8d2d2"> </div><br/>';
 
@@ -140,10 +140,10 @@ class Affichage{
 	    $ret .= '<br/><br/><div style="text-align:center"><b>Aucun billet trouv&eacute; dans cette cat&eacute;gorie</b></div><br/>';
 	}else{
 	    foreach ($billets as $billet){
-		
+
 		$suite = '';
 		if (strlen($billet->getAttr('contenu_billet')) > 200){
-		    
+
 		    $suite = '...<a href="blog.php?action=detail&id=' .$billet->getAttr('id_billet'). '&site=' . $site . '"><strong> Lire la suite</strong></a>';
 		}
 
@@ -164,20 +164,20 @@ class Affichage{
 	$ret =' ';
 	$nb =count($categories);
 	if ($nb == 0){
-		$ret .= "Pas de categorie";
+	    $ret .= "Pas de categorie";
 	}
 	else
 	{
-		
-		foreach($categories as $cat)
-		{
-		    	$suite = '';
-			$titre = $cat->getAttr('titre_categ');
-		  	  if (strlen($titre) > 15){
-				$suite = '...';
-			 }
-		  	  $ret .= '&nbsp;&nbsp;<a href="blog.php?action=cat&id=' .$cat->getAttr('id_categ'). '&site=' . $_GET['site'] . '">' .substr($titre,0,15). $suite . '</a><br/>';
+
+	    foreach($categories as $cat)
+	    {
+		$suite = '';
+		$titre = $cat->getAttr('titre_categ');
+		if (strlen($titre) > 15){
+		    $suite = '...';
 		}
+		$ret .= '&nbsp;&nbsp;<a href="blog.php?action=cat&id=' .$cat->getAttr('id_categ'). '&site=' . $_GET['site'] . '">' .substr($titre,0,15). $suite . '</a><br/>';
+	    }
 	}
 	return $ret;
     }
