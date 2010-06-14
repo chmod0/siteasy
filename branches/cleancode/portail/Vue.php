@@ -6,41 +6,41 @@ class Vue
     public static function header($script)
     {
 	$html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-            <html xmlns="http://www.w3.org/1999/xhtml">
+	    <html xmlns="http://www.w3.org/1999/xhtml">
 	    <head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    <title>EasyWeb, le portail simplifié de création de sites Web</title>
 	    <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" href="css/form-field-tooltip.css" media="screen" type="text/css">
-                
-                <script src="../editor/goog/base.js"></script>
-                <script>
-                goog.require("goog.ui.Dialog");
-                </script>
-                <script type="text/javascript" src="js/fonctionDialog.js"></script>
+	    <link rel="stylesheet" href="css/form-field-tooltip.css" media="screen" type="text/css">
+
+	    <script src="../editor/goog/base.js"></script>
+<script>
+goog.require("goog.ui.Dialog");
+		</script>
+		<script type="text/javascript" src="js/fonctionDialog.js"></script>
 		<script type="text/javascript" src="js/rounded-corners.js"></script>
 		<script type="text/javascript" src="js/form-field-tooltip.js"></script>
-                <script type="text/javascript" src="js/fonctionsAjax.js"></script>
-                <script type="text/javascript" src="js/json.js"></script>
-                <script type="text/javascript" src="js/' . $script . '"></script>
+		<script type="text/javascript" src="js/fonctionsAjax.js"></script>
+		<script type="text/javascript" src="js/json.js"></script>
+		<script type="text/javascript" src="js/' . $script . '"></script>
 
-            	<link rel="stylesheet" href="../image/css/lightbox.css" type="text/css" media="screen" />
-                <link rel="stylesheet" href="../editor/css/dialog.css" /> 
+		<link rel="stylesheet" href="../image/css/lightbox.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../editor/css/dialog.css" /> 
 		<script type="text/javascript" src="../image/js/prototype.js"></script>
 		<script type="text/javascript" src="../image/js/scriptaculous.js?load=effects,builder"></script>
 		<script type="text/javascript" src="../image/js/lightbox.js"></script>
 
-                
+
 
 	    </head>
 	    <body>
 
 <!-- HEADER -->
 <a href="index.php"><div id="header"></div></a>';
-        if (isset ($_GET['up'])){
-            $html .= '<script type="text/javascript">afficheImage(0)</script>';
+	if (isset ($_GET['up'])){
+	    $html .= '<script type="text/javascript">afficheImage(0)</script>';
 
-        }
+	}
 return $html;
     }
 
@@ -55,20 +55,20 @@ return $html;
 		$adm = '<a href="../administration/index.php">Administration</a>';
 	    }
 	}
-        //provisoire
-        $mail =$_SESSION["mail"];
+	//provisoire
+	$mail =$_SESSION["mail"];
 	$html = '<div id="footer">
 	    <p>Projet Tutoré - DUT Informatique - IUT Nancy-Charlemagne<br/>
 	    Julien Guepin, Geoffrey Tisserand, Arnaud Lahaxe, Baptiste Kostrzewa</p>
 	    <center>'.$adm.'</center>
 	    </div>
-		<script type="text/javascript">
-			var tooltipObj = new DHTMLgoodies_formTooltip();
-			tooltipObj.setTooltipPosition(\'right\');
-			tooltipObj.setPageBgColor(\'#EEE\');
-			tooltipObj.initFormFieldTooltip();
-		</script>
-            <input type="hidden" id="deb" value="0" />
+<script type="text/javascript">
+var tooltipObj = new DHTMLgoodies_formTooltip();
+tooltipObj.setTooltipPosition(\'right\');
+tooltipObj.setPageBgColor(\'#EEE\');
+tooltipObj.initFormFieldTooltip();
+</script>
+	    <input type="hidden" id="deb" value="0" />
 	    </body>		
 	    </html>';
 	return $html;
@@ -141,7 +141,7 @@ return $html;
 	    <a href="#inscription"><img border="none" src="img/inscrire.png" alt="S\'inscrire" onmouseout="this.src=\'img/inscrire.png\';" onmouseover="this.src=\'img/inscrire_over.png\';" name="validInscr" id="validInscr" value="INSCRIPTION" /></a>
 	    <br/>
 	    </form>
-            
+
 	    <div style="clear:both"></div>
 
 
@@ -175,7 +175,7 @@ return $html;
 	$html .= '</div>';
 	$html .= '<div style="clear:both"></div>';
 	$html .= '<div id="details" style="display:none"></div>';
-	
+
 	$html .= '<div style="margin-top:10px; text-align:center">';
 	$html .= '<a id="lienModif" href="#" target="_blank"><img style="margin-right:20px;visibility:hidden" border="none" src="img/modifier.png" alt="Modifier le site" onmouseout="this.src=\'img/modifier.png\';"  onmouseover="this.src=\'img/modifier_over.png\';" name="modifySite" id="boutonModif" value="Modifier le site" /></a>';
     $html .= '<a id="lienVisit" href="#" target="_blank"><img style="margin-right:20px;visibility:hidden" border="none" src="img/voir.png" alt="Modifier le site" onmouseout="this.src=\'img/voir.png\';"  onmouseover="this.src=\'img/voir_over.png\';" name="visitSite" id="boutonVisit" value="Modifier le site" /></a>';

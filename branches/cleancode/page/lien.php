@@ -264,11 +264,5 @@ class lien {
 	return null;
     }
 
-
-
-
-
-
-
 }
 ?>

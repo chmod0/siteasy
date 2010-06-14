@@ -118,8 +118,8 @@ class EditionController{
 	$billet = Billet::findById($_REQUEST['id']);
 	if ($_REQUEST['contenu'] != '')
 	{
-            $contenu = $_REQUEST['contenu'];
-            $contenu = strip_tags ($contenu,'<p><b><font><blockquote><span><br><code><em><h1><h2><h3><h4><h5><h6><hr><table><td><tr><img><li><s><q><u><xmp><bq><sup><sub><center><left><right>');
+	    $contenu = $_REQUEST['contenu'];
+	    $contenu = strip_tags ($contenu,'<p><b><font><blockquote><span><br><code><em><h1><h2><h3><h4><h5><h6><hr><table><td><tr><img><li><s><q><u><xmp><bq><sup><sub><center><left><right>');
 	    $billet->setAttr('contenu_billet',$contenu);
 	    $billet->setAttr('id_categ',$_REQUEST['categ_billet']);
 	    $billet->update();
