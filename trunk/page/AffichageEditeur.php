@@ -6,92 +6,92 @@ require_once '../design/design.php';
 
 class AffichageEditeur{
 
-	static function affichePage($content,$menu,$design,$cote=null,$page_site,$num_page,$nom_site, $titre_site, $image=null){
+    static function affichePage($content,$menu,$design,$cote=null,$page_site,$num_page,$nom_site, $titre_site, $image=null){
 
-		echo AffichageEditeur::header($num_page, $titre_site, $design);
-                $image = controller::getTabImagePage($num_page,true);
-		echo "
-			$cote
-			<div id=\"global\">
-			<div id=\"entete\">
-			<h1>
+	echo AffichageEditeur::header($num_page, $titre_site, $design);
+	$image = controller::getTabImagePage($num_page,true);
+	echo "
+	    $cote
+	    <div id=\"global\">
+	    <div id=\"entete\">
+	    <h1>
 
-			</h1>
-			<p class=\"sous-titre\">
-			</p>
+	    </h1>
+	    <p class=\"sous-titre\">
+	    </p>
 
-			<h1><b><a href=\"index.php?site=$nom_site\">$titre_site</a></b></h1>
+	    <h1><b><a href=\"index.php?site=$nom_site\">$titre_site</a></b></h1>
 
-			</div><!-- #entete -->
-			
-			<div id=\"navigation\">
+	    </div><!-- #entete -->
 
-			$menu
+	    <div id=\"navigation\">
 
-			</div><!-- #navigation -->
+	    $menu
 
-			<div id=\"centre\">
+	    </div><!-- #navigation -->
 
-			<div id=\"principal\">
-			<a href=\"#\" id=\"supprPageButton\" title=\"Supprimer la page\"><img id=\"boutonSuppr\" src=\"../editor/img/icon_close.png\" onmouseout=\"this.src='../editor/img/icon_close.png'\" onmouseover=\"this.src='../editor/img/icon_close_over.png'\" /></a>
-                        $image
-			$content
+	    <div id=\"centre\">
 
-			<div id= \"pagesite\">
-			$page_site
-			</div>
-			<br/><br/>
+	    <div id=\"principal\">
+	    <a href=\"#\" id=\"supprPageButton\" title=\"Supprimer la page\"><img id=\"boutonSuppr\" src=\"../editor/img/icon_close.png\" onmouseout=\"this.src='../editor/img/icon_close.png'\" onmouseover=\"this.src='../editor/img/icon_close_over.png'\" /></a>
+	    $image
+	    $content
 
-			</div><!-- #principal -->
-			";
-		echo AffichageEditeur::footer();
+	    <div id= \"pagesite\">
+	    $page_site
+	    </div>
+	    <br/><br/>
 
-	}
+	    </div><!-- #principal -->
+	    ";
+	echo AffichageEditeur::footer();
 
-	static function header($num_page, $titre_site, $design)
+    }
+
+    static function header($num_page, $titre_site, $design)
+    {
+	if($num_page != null)
 	{
-		if($num_page != null)
-		{
-			$script = '<script src="../editor/savePage.js"></script>';
-		}
-		else
-		{
-			$script = '<script src="../editor/newPage.js"></script>';
-		}
-		$html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-			<html xmlns="http://www.w3.org/1999/xhtml">
-			<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    $script = '<script src="../editor/savePage.js"></script>';
+	}
+	else
+	{
+	    $script = '<script src="../editor/newPage.js"></script>';
+	}
+	$html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	    <html xmlns="http://www.w3.org/1999/xhtml">
+	    <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-			<title>' . $titre_site . '</title>
+	    <title>' . $titre_site . '</title>
 
-			<script src="../editor/goog/base.js"></script>
-                        <script>
-                            goog.require("goog.dom");
-                            goog.require("goog.editor.SeamlessField");
-                            goog.require("goog.editor.Command");
-                            goog.require("goog.editor.plugins.BasicTextFormatter");
-                            goog.require("goog.editor.plugins.EnterHandler");
-                            goog.require("goog.editor.plugins.HeaderFormatter");
-                            goog.require("goog.editor.plugins.ListTabHandler");
-                            goog.require("goog.editor.plugins.LoremIpsum");
-                            goog.require("goog.editor.plugins.RemoveFormatting");
-                            goog.require("goog.editor.plugins.SpacesTabHandler");
-                            goog.require("goog.editor.plugins.UndoRedo");
-                            goog.require("goog.ui.editor.DefaultToolbar");
-                            goog.require("goog.ui.editor.ToolbarController");
-                            goog.require("goog.ui.Dialog");
+	    <script src="../editor/goog/base.js"></script>
+<script>
+goog.require("goog.dom");
+goog.require("goog.editor.SeamlessField");
+goog.require("goog.editor.Command");
+goog.require("goog.editor.plugins.BasicTextFormatter");
+goog.require("goog.editor.plugins.EnterHandler");
+goog.require("goog.editor.plugins.HeaderFormatter");
+goog.require("goog.editor.plugins.ListTabHandler");
+goog.require("goog.editor.plugins.LoremIpsum");
+goog.require("goog.editor.plugins.RemoveFormatting");
+goog.require("goog.editor.plugins.SpacesTabHandler");
+goog.require("goog.editor.plugins.UndoRedo");
+goog.require("goog.ui.editor.DefaultToolbar");
+goog.require("goog.ui.editor.ToolbarController");
+goog.require("goog.ui.Dialog");
 
-                        </script>
+			</script>
 
 		<!-- on intégre le script de l\'éditeur et de l\'enregistreur -->
 		<script src="../editor/editorPage.js"></script>
 		<script src="../editor/fonctionsAjax.js"></script>
-               
+
 		' . $script . '
-                <script type="text/javascript" src="../image/js/prototype.js"></script>
-                <script type="text/javascript" src="../image/js/scriptaculous.js?load=effects,builder"></script>
-                <script type="text/javascript" src="../image/js/lightbox.js"></script>
+		<script type="text/javascript" src="../image/js/prototype.js"></script>
+		<script type="text/javascript" src="../image/js/scriptaculous.js?load=effects,builder"></script>
+		<script type="text/javascript" src="../image/js/lightbox.js"></script>
 		<link rel="stylesheet" type="text/css" href="../design/page/base.css" media="all" />
 		<link rel="stylesheet" href="..' . $design . 'style.css" media="screen"/>
 		<link rel="stylesheet" href="../editor/goog/css/button.css" /> 
@@ -104,9 +104,9 @@ class AffichageEditeur{
 
 		<link rel="stylesheet" href="../editor/css/dialog.css" /> 
 		<link rel="stylesheet" href="../editor/css/editor.css" />
-                <link rel="stylesheet" href="../image/css/lightbox.css" type="text/css"  />
+		<link rel="stylesheet" href="../image/css/lightbox.css" type="text/css"  />
 
-                
+
 
 		</head>';
     if($num_page != null)
@@ -142,12 +142,11 @@ class AffichageEditeur{
 			</div>
 			<br />
 			<br />
-                        <input type="hidden" id="deb" value="0" />
-                        <input type="hidden" id="num_page" value="' . $num_page . '" />
+			<input type="hidden" id="deb" value="0" />
+			<input type="hidden" id="num_page" value="' . $num_page . '" />
 			';
     return $html;
     }
-
 
     static function footer()
     {
@@ -229,7 +228,7 @@ class AffichageEditeur{
 	    </div><!-- #global -->
 
 	    <script src=\"../editor/fonctionsDialog.js\"></script>
-            <script type=\"text/javascript\" src=\"../portail/js/json.js\"></script>
+	    <script type=\"text/javascript\" src=\"../portail/js/json.js\"></script>
 	    </body>
 	    </html>";
 

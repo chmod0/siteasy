@@ -41,7 +41,7 @@ if(isset($etape))
 
 	$_SESSION['site'] = serialize($site);
 	break;
-    
+
     case 2:
 	$id_modele = $_POST['id_modele'];
 
@@ -49,23 +49,23 @@ if(isset($etape))
 	if(isset($site))
 	{
 	    $site->setAttr('id_modele', $id_modele);
-	      
+
 	    $_SESSION['site'] = serialize($site);
 	}
 	break;
 
     case 3:
-		$id_design = $_POST['id_design'];
-		$site = unserialize($_SESSION['site']);
-		if(isset($site)){
-			$site->setAttr('id_design', $id_design);
-			$_SESSION['site'] = serialize($site);
+	$id_design = $_POST['id_design'];
+	$site = unserialize($_SESSION['site']);
+	if(isset($site)){
+	    $site->setAttr('id_design', $id_design);
+	    $_SESSION['site'] = serialize($site);
 
-		}
-	
+	}
+
 	break;
-	
-	default:
+
+    default:
 	break;
 
     }

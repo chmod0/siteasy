@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once 'controller/BlogController.php';
-
 include ('../sites/Securite.php');
 
 if (!Securite::estBanni()){
@@ -71,7 +70,7 @@ if (!Securite::estBanni()){
 		require_once("../sites/Site.php");
 		$site = Site::findByNomSite($nomSite);
 		if($site != null)
-		$mail = $site->getAttr('mail');
+		    $mail = $site->getAttr('mail');
 		if($_SESSION['connecte'] && $mail == $_SESSION['mail'] && $_SESSION['editBlog'] == true)
 		{
 		    // on appelle la fonction qui affiche la liste complete des billets
@@ -106,14 +105,12 @@ if (!Securite::estBanni()){
 	    </head>
 	    </html>';
     }
-if(isset($_REQUEST['id_billet'])&& isset($_REQUEST['ac'])) {
+    if(isset($_REQUEST['id_billet'])&& isset($_REQUEST['ac'])) {
 	$a = new Affichage();
 	$billet= Billet::findById($_REQUEST['id_billet']);
 	$nom_site = $billet->getAttr('nom_site');
 	$menu = BlogController::reloadMenu($nom_site);
 	echo $menu;
-}
-
-
+    }
 }
 ?>

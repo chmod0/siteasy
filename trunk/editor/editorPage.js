@@ -55,7 +55,7 @@ function initFields(id)
     {
 	document.getElementById("saveTitreButton").onclick = insertTitre;
 	document.getElementById("saveContenuButton").onclick = insertContenu
-	document.getElementById("boutonSuppr").onclick = supprimerPage;
+	    document.getElementById("boutonSuppr").onclick = supprimerPage;
     }
 }
 

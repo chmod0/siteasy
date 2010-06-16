@@ -8,7 +8,7 @@ $action = $_REQUEST['action'];
 switch($action)
 {
 case "modifTitre":
-   
+
     EditionController::modificationTitreBillet();
     echo "Titre sauvegardé";
     break;
