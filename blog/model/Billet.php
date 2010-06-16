@@ -132,7 +132,7 @@ class Billet{
 	    ",auteur_billet=".(isset($this->auteur_billet) ? "'$auteur'" : "null").
 	    ",contenu_billet=".(isset($this->contenu_billet) ? "'$contenu'" : "null").
 	    ",id_categ=".(isset($this->id_categ) ? "'$idCateg'" : "null").
-	",image=".(isset($this->image) ? "'$image'" : "0").
+	    ",image=".(isset($this->image) ? "'$image'" : "0").
 	    ",date_billet=".(isset($this->date_billet) ? "'$date'" : "null").
 	    ",nom_site=".(isset($this->nom_site) ? "'$this->nom_site'" : "null").
 	    "where id_billet=$this->id_billet";
@@ -253,7 +253,7 @@ class Billet{
 	    $billet->setAttr('id_categ',stripslashes($row['id_categ']));
 	    $billet->setAttr('date_billet',stripslashes($row['date_billet']));
 	    $billet->setAttr('nom_site',stripslashes($row['nom_site']));
-	$billet->setAttr('image',stripslashes($row['image']));
+	    $billet->setAttr('image',stripslashes($row['image']));
 	    $tab[]=$billet;
 	}
 	return $tab;
@@ -286,7 +286,7 @@ class Billet{
 	    $bil->setAttr('id_categ',stripslashes($row['id_categ']));
 	    $bil->setAttr('date_billet',stripslashes($row['date_billet']));
 	    $bil->setAttr('nom_site',stripslashes($row['nom_site']));
-	$bil->setAttr('image',stripslashes($row['image']));
+	    $bil->setAttr('image',stripslashes($row['image']));
 	    $tab[]=$bil;		
 	}
 	return $tab;
@@ -318,13 +318,13 @@ class Billet{
 	    $bil->setAttr('id_categ',stripslashes($row['id_categ']));
 	    $bil->setAttr('date_billet',stripslashes($row['date_billet']));
 	    $bil->setAttr('nom_site',stripslashes($row['nom_site']));
-		$bil->setAttr('image',stripslashes($row['image']));
+	    $bil->setAttr('image',stripslashes($row['image']));
 	    $tab[]=$bil;		
 	}
 	return $tab;
     }
 
-public static function findByImage($image) {
+    public static function findByImage($image) {
 	$query = "select * from billet where image=". " $image ";
 	$c = Base::getConnection();
 	$dbres = mysql_query($query,$c);
@@ -341,15 +341,11 @@ public static function findByImage($image) {
 	    $billet->setAttr('id_categ',stripslashes($row['id_categ']));
 	    $billet->setAttr('date_billet',stripslashes($row['date_billet']));
 	    $billet->setAttr('nom_site',stripslashes($row['nom_site']));
-	$billet->setAttr('image',stripslashes($row['image']));
+	    $billet->setAttr('image',stripslashes($row['image']));
 	    $tab[]=$billet;
 	}
 	return $tab;
     }
-
-
-
-
 }
 
 ?>

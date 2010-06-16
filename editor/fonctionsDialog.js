@@ -16,7 +16,7 @@ function showInfosDialog()
     goog.events.listen(dialogReglages, goog.ui.Dialog.EventType.SELECT, function(e){
 	    envoyerModificationsSite(e.key, contenuFormInfos);
 	    });
-    
+
     goog.events.listen(window, 'unload', function(){
 	    goog.events.removeAll();
 	    });

@@ -12,23 +12,23 @@ class vueWizard
     public static function header($mail)
     {
 	$html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-		<html xmlns="http://www.w3.org/1999/xhtml">
-		<head>
-		    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		    <title>EasyWeb, le portail simplifié de création de sites Web</title>
-		    <link rel="stylesheet" type="text/css" href="css/style.css" />
-			 <script type="text/javascript" src="js/fonctionsWizard.js"></script>
-			  <script type="text/javascript" src="js/fonctionsAjax.js"></script>
-			  <!-- POPUP -->
-			<link type="text/css" media="screen" rel="stylesheet" href="../editor/css/colorbox.css" />
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-			<script type="text/javascript" src="../editor/js/jquery.colorbox.js"></script>
-			<script type="text/javascript">
-				$(document).ready(function(){
+	    <html xmlns="http://www.w3.org/1999/xhtml">
+	    <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>EasyWeb, le portail simplifié de création de sites Web</title>
+	    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	    <script type="text/javascript" src="js/fonctionsWizard.js"></script>
+<script type="text/javascript" src="js/fonctionsAjax.js"></script>
+<!-- POPUP -->
+<link type="text/css" media="screen" rel="stylesheet" href="../editor/css/colorbox.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="../editor/js/jquery.colorbox.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
 
-					$(".modifInfos").colorbox({width:"370px", inline:true, href:"#infos"});
-				
-				});
+    $(".modifInfos").colorbox({width:"370px", inline:true, href:"#infos"});
+
+    });
 			</script>
 		<!-- /POPUP -->
 		</head>
@@ -36,7 +36,7 @@ class vueWizard
 
 		<!-- HEADER -->
 		<a href="index.php"><div id="header"></div></a>';
-	
+
 	$html .= '<div id="top">';
 	$html .= '<p>Bonjour <strong>' . $mail . '</strong> - <a href="index.php?action=logout">Déconnexion</a></p>';
 	$html .= '<table><tr>
@@ -64,11 +64,11 @@ class vueWizard
 	$html = vueWizard::header($mail);
 	switch($etape)
 	{
-	
+
 	case 0:
 	    $html .= vueWizard::etape0();
 	    break;
-		
+
 	case 1:
 	    $html .= vueWizard::etape1();
 	    break;
@@ -99,11 +99,11 @@ class vueWizard
 	    break;
 	}
 	$html .= vueWizard::footer();
-	
+
 	echo $html; 
     }
 
-	
+
 	 public static function etape0()
     {
 	if($siteExiste = isset($_SESSION['site']))
@@ -132,8 +132,8 @@ class vueWizard
 	    </div>';
 	return $html;
     }
-	
-	
+
+
     public static function etape1()
     {
 	if($siteExiste = isset($_SESSION['site']))
@@ -146,31 +146,31 @@ class vueWizard
 	    <h3>Informations générales</h3>
 	    <p><div id="details">Indiquez ici les informations générales sur le site que vous souhaitez créer.</div></p>
 	    <form method="post" id="formInfos" action="wizard.php?goto=2&etape=1">
-	    
+
 		<div style="float:left">
 			<label for="nom_site">Nom *</label><br />
 			<input type="text" name="nom_site" id="nom_site" value="' . (($siteExiste) ? $site->getAttr('nom_site') : "") . '"  /><br />
-			
+
 			<div id="pathSite"></div><br />
-			
+
 			<label for="titre_site">Titre</label><br />
 			<input type="text" name="titre_site" id="titre_site" value="' . (($siteExiste) ? $site->getAttr('titre_site') : "") . '" /><br /><br />
 		</div>
-		
+
 		<div style="float:right">
 			<label for="mots_cle">Mots clé</label><br />
 			<input type="text" id="mots_cle" name="mots_cle" value="' . (($siteExiste) ? $site->getAttr('mots_cle') : "") . ' "/><br /><br />
 			<label for="categ_site">Catégorie</label><br />
 			<select type="text" id="categ_site" name="categ_site" value="' . (($siteExiste) ? $site->getAttr('categ_site') : "") . ' ">
 			<option id="aucune">aucune</option>';
-			
+
 		$categs_site = SiteCateg::findAll();
 		foreach($categs_site as $categ_site){
 			$html .= '<option id="'.$categ_site->getAttr('titre_site_categ').'">' .$categ_site->getAttr('titre_site_categ'). '</option>';
 		}
 		$html .= '</select><br /><br />		
 		</div>
-		
+
 		<div style="clear:both"></div>
 	    <label for="desc_site">Description</label><br />
 	    <textarea id="desc_site" cols="43" rows="3" name="desc_site">' . (($siteExiste) ? $site->getAttr('desc_site') : "") . '</textarea><br /><br />
@@ -178,7 +178,7 @@ class vueWizard
 	$html .= vueWizard::boutons(1);
 	$html .= 
 	    '</form>
-		
+
 	    </div>';
 	return $html;
     }
@@ -199,12 +199,12 @@ class vueWizard
 	$modeles = Modele::findAll();
 	$i = 1;
 	foreach($modeles as $mod){
-	
+
 		$libelle = $mod->getAttr('libelle_modele');
 		$id = $mod->getAttr('id_modele');
 		$desc = $mod->getAttr('desc_modele');
 		if ($i == 1){
-			
+
 			$html .='<input type="radio" name="id_modele" value="'.$id.'" id="'.$id.'"checked/> <label for="'.$id.'">'.$libelle.'</label>
 					<div id="details">'.$desc.'</div><br/>';
 			$i = 0;
@@ -228,8 +228,8 @@ class vueWizard
 	    <div style="text-align:right; font-size:0.7em"><a href="index.php?action=cancelSite">Annuler l\'installation</a></div>
 	    <h3>Design du site</h3>
 	    <p id="details">Indiquez ici le design du site que vous souhaitez créer.</p>
-    	    <form method="post" action="wizard.php?goto=4&etape=3">';
-	
+	    <form method="post" action="wizard.php?goto=4&etape=3">';
+
 	$site = unserialize($_SESSION['site']);
 	$id_mod = $site->getAttr('id_modele'); 
 	$designs = design::findByIdModele($id_mod);
@@ -247,7 +247,7 @@ class vueWizard
 			<input type="radio" name="id_design" id="'.$id_design.'" value="'.$id_design.'"/>'.$lib_design.'<br /><br />';	
 		}
 	}	
-	
+
 	$html .= vueWizard::boutons(3);
 	$html .= 
 	    '</form>
@@ -261,7 +261,7 @@ class vueWizard
 	    '<div id="center">
 	    <div style="text-align:right; font-size:0.7em"><a href="index.php?action=cancelSite">Annuler l\'installation</a></div>
 	    <h3>Résumé des informations</h3>';
-	
+
 	$site = unserialize($_SESSION['site']);
 	$mod =  Modele::findById($site->getAttr('id_modele'));
 	$des =  design::findById($site->getAttr('id_design'));

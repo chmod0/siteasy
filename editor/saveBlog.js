@@ -4,7 +4,7 @@ function saveTitre()
     // on récupère l'index de la catégorie sélectionnée
     var id_categ_billet = document.getElementById("categ_billet").selectedIndex;
     var categ_billet = (document.getElementById("categ_billet")[id_categ_billet]).id;
-    
+
     // creation de l'objet XHR qui envoie la requete
     objetXHRSaveTitre = creationXHR();
     // on ouvre une requete asynchrone POST vers le script adresseScript
@@ -16,7 +16,7 @@ function saveTitre()
     var parametres = "action=modifTitre&id=" + idBillet + "&titre=" + titre + "&categ_billet=" + categ_billet;
     // envoi du titre en parametre !
     objetXHRSaveTitre.send(parametres);
-    
+
 
 }
 
@@ -37,7 +37,7 @@ function saveContenu()
     var parametres = "action=modifContenu&id=" + idBillet + "&contenu=" + contenu + "&categ_billet=" + categ_billet;
     // envoi du titre en parametre !
     objetXHRSaveContenu.send(parametres); 
-	
+
 }
 
 function saveTitreReturn()
@@ -47,9 +47,9 @@ function saveTitreReturn()
 	if(objetXHRSaveTitre.status == 200)
 	{
 	    desactiverChamp(fieldTitre);
-		
+
 	    reloadMenu(idBillet);
-	    
+
 	}
     }
 
@@ -92,16 +92,16 @@ function recuperationNomSite()
     return tabIndexParametres['site'];
 }
 
-function SupprimeRetour(){
+    function SupprimeRetour(){
 	if(objetXHRSuppr.readyState == 4)
-    	{
-		if(objetXHRSuppr.status == 200)
-		{
-			var nomSite = recuperationNomSite();
-			document.location="./blog.php?action=edit&site=" + nomSite;
-		}
+	{
+	    if(objetXHRSuppr.status == 200)
+	    {
+		var nomSite = recuperationNomSite();
+		document.location="./blog.php?action=edit&site=" + nomSite;
+	    }
 	}
-}
+    }
 
 function supprimerCategorie()
 {
@@ -128,8 +128,8 @@ function cacherSauvCate(){
 
 function saveCate()
 {
-     saveContenu();
-     cacherSauvCate();
+    saveContenu();
+    cacherSauvCate();
 }
 
 function reloadMenu(id_billet)
@@ -149,8 +149,8 @@ function afficheMenuBlog()
     {
 	if(objetXHRSave.status == 200)
 	{
-	     var resultat = objetXHRSave.responseText;
-	     document.getElementById("droite").innerHTML = resultat;
+	    var resultat = objetXHRSave.responseText;
+	    document.getElementById("droite").innerHTML = resultat;
 	}
     }
 }

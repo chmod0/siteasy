@@ -49,8 +49,8 @@ function initFields(id)
      * initialisation de l'évènement du bouton supprimer Billet 
      */
 
-	document.getElementById("boutonSuppr").onclick = supprimerBillet;
-    
+    document.getElementById("boutonSuppr").onclick = supprimerBillet;
+
 }
 
 function instancierToolbar()

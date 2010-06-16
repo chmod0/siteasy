@@ -4,15 +4,11 @@ include_once '../bdd/Base.php';
 
 class Page {
 
-
-
-
     private $num_page ;
     private $nom_site;
     private $id_bloc;
     private $titre_page;
     private $contenu_page;
-
 
     public function __construct() {
     }
@@ -41,7 +37,6 @@ class Page {
      *   @param String $attr_name attribute name
      *   @return mixed
      */
-
 
     public function getAttr($attr_name) {
 	if (property_exists( __CLASS__, $attr_name)) {
@@ -160,8 +155,6 @@ class Page {
 
 	    return 0;
 	}
-
-
     }
     /**
      *   Finder sur ID
@@ -246,7 +239,6 @@ class Page {
 	    $p->setAttr('titre_page',$titre);
 	    $p->setAttr('contenu_page',$contenu);
 
-
 	    return $p;
 
 	}
@@ -264,7 +256,6 @@ class Page {
 		$p->setAttr('nom_site',$pages['nom_site']);
 		$p->setAttr('id_bloc',$pages['id_bloc']);
 
-
 		$titre = stripslashes($pages['titre_page']);
 		$contenu = stripslashes($pages['contenu_page']);
 
@@ -277,9 +268,6 @@ class Page {
 	}return array();
 
     }
-
-
-
 
 }
 ?>
